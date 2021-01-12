@@ -1,0 +1,53 @@
+<form [formGroup]="holidayForm" novalidate>
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Holiday Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Holiday name</mat-label>
+            <input matInput placeholder="Year" formControlName="name">
+          </mat-form-field>
+        </div>
+      </div>
+
+         <app-custom-input formControlName="location"></app-custom-input>
+
+
+      <div class="row">
+
+        <div class="col">
+          <mat-form-field appearance="outline" appearance="outline">
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepicker]="startPicker" formControlName="dateStart">
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Finish Date</mat-label>
+            <input matInput [matDatepicker]="endPicker" formControlName="dateFinish">
+            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="save()">OK</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+
+<p>
+  Form is {{holidayForm.valid ? 'Valid' : 'Invalid'}}
+</p>
+<pre>
+  {{holidayForm.value | json}}
+  </pre>
+

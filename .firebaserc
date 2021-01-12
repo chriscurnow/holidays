@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "holidays-300107": {
+      "hosting": {
+        "holidays2": [
+          "holidays-300107"
+        ]
+      }
+    }
+  }
+}

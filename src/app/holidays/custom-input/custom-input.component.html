@@ -1,0 +1,50 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col">
+      <app-custom-auto formControlName="name"
+        [autoOptions]="options"
+        [displayFunction]="displayFn"
+        (optionSelected)="onOptionSelected($event)">
+      </app-custom-auto> -->
+
+        <!--  -->
+    </div>
+  <div class="col">
+<!-- <mat-form-field class="full-width" appearance="outline">
+  <input type="text"
+          placeholder="Pick one"
+          aria-label="Number"
+          formControlName="name"
+          matInput
+          [matAutocomplete]="auto"
+          >
+</mat-form-field> -->
+
+</div>
+<!-- <mat-autocomplete #auto="matAutocomplete"
+                  (optionSelected)="optionSelected($event.option.value)">
+  <mat-option *ngFor="let location of filteredLocations | async" [value]="location">
+    {{location.name}}
+  </mat-option>
+</mat-autocomplete> -->
+
+<div class="col">
+<mat-form-field class="full-width" appearance="outline">
+  <input type="text"
+    formControlName="city"
+    matInput
+    readonly>
+</mat-form-field>
+</div>
+<div class="col">
+<mat-form-field class="full-width" appearance="outline">
+  <input type="text"
+    formControlName="state"
+    matInput
+    readonly>
+</mat-form-field>
+</div>
+</div>
+</div>
+
+

@@ -1,0 +1,48 @@
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Year</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="locationName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
+      <td mat-cell *matCellDef="let row">{{row.location?.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="locationCity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
+      <td mat-cell *matCellDef="let row">{{row.location?.city}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateStart">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Start</th>
+      <td mat-cell *matCellDef="let row">{{formatDate(row.dateStart)}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateFinish">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Finish</th>
+      <td mat-cell *matCellDef="let row">{{formatDate(row.dateFinish)}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClicked(row)" class="animate" style="cursor: pointer"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data?.length"
+      [pageIndex]="0"
+      [pageSize]="50"
+      [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+
+  <button mat-raised-button color="primary" (click)="new()">NEW</button>
+
+</div>
